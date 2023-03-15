@@ -1,0 +1,17 @@
+extends ../layout/index
+
+block formulario 
+  form(class='formulario' action="/auth/registro" method="POST") 
+    input(class='form-item' id="nombre" name="nombre" placeholder="Nombre" type="text" value= usuario ? usuario.nombre : '')
+    input(class='form-item' id="apellido" name="apellido" placeholder="apellido" type="text" value= usuario ? usuario.apellido : '')
+    input(class='form-item' id="documento" name="documento" placeholder="documento" type="number" value= usuario ? usuario.documento : '')
+    input(class='form-item' id="correo" name="correo" placeholder="Correo" type="email" value= usuario ? usuario.correo : '')
+    input(class='form-item' id="direccion" name="direccion" placeholder="direccion" type="text" value= usuario ? usuario.direccion : '')
+    input(class='form-item' id="telefono" name="telefono" placeholder="telefono" type="tel" value= usuario ? usuario.telefono : '')
+    input(class='btnGuardar' id="btnGuardar" value="Crear Cliente" type="submit") 
+  if errores 
+      section(class='errores')
+        each error in errores
+          p=error.msg
+
+

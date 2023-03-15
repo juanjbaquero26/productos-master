@@ -1,0 +1,14 @@
+extends ../layout/index
+
+block formulario
+  form(class='formulario' action="/auth/registroProducto" method="POST") 
+    input(class='form-item' id="nombre" name="nombre" placeholder="Nombre" type="text" value= producto ? producto.nombre : '')
+    input(class='form-item' id="referencia" name="referencia" placeholder="referencia" type="text" value= producto ? producto.referencia : '')
+    input(class='form-item' id="precio" name="precio" placeholder="precio" type="number" value= producto ? producto.precio : '')
+    input(class='form-item' id="descripcion" name="descripcion" placeholder="descripcion" type="text" value= producto ? producto.descripcion : '')
+    input(class='form-item' id="cantidad" name="cantidad" placeholder="cantidad" type="tel" value= producto ? producto.cantidad : '')
+    input(class='btnGuardar' id="btnGuardar" value="Crear Producto" type="submit")
+  if errores 
+    section(class='errores')
+      each error in errores
+        p=error.msg
